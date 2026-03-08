@@ -35,9 +35,17 @@ export function FileUpload({ onFileLoad, label, loaded }: FileUploadProps) {
 
   if (loaded) {
     return (
-      <div className="flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-4 py-2 glow-green">
-        <div className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
-        <span className="font-mono text-sm text-primary">{label} loaded</span>
+      <div className="flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 px-4 py-2 glow-green">
+        <div className="flex items-center gap-2">
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
+          <span className="font-mono text-sm text-primary">{label} loaded</span>
+        </div>
+        <button 
+          onClick={handleClick}
+          className="rounded border border-primary/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-primary hover:bg-primary/10 transition-colors"
+        >
+          Change
+        </button>
       </div>
     );
   }
