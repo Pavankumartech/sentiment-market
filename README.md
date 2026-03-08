@@ -7,6 +7,7 @@ Uncover patterns in trader performance across different market sentiment regimes
 
 ## Features
 - [x] **Analysis Engine**: TypeScript-based processing logic for high-volume trade data.
+- [x] **Jupyter Notebook**: [analysis.ipynb](./analysis.ipynb) for traditional Python-based Data Science exploration.
 - [x] **README.md**: Comprehensive setup and deployment instructions.
 - [x] **Charts & Tables**: Dynamic visualizations using Recharts and shadcn componentry.
 - [x] **Write-up**: See [ANALYSIS_REPORT.md](./ANALYSIS_REPORT.md) for methodology, insights, and strategies.
