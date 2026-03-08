@@ -1,64 +1,60 @@
-# Trader Performance vs Market Sentiment
+# Sentiment Market Analysis (Traders vs. Sentiment)
 
-Analysis of how market sentiment (Fear/Greed) relates to trader behavior and performance on Hyperliquid.
+This repository contains a comprehensive analysis of the relationship between market sentiment (Bitcoin Fear & Greed Index) and trader performance on the Hyperliquid platform.
 
-## Objective
-Uncover patterns in trader performance across different market sentiment regimes (Fear vs Greed) to inform smarter trading strategies.
+## 📁 Repository Structure
 
-## Features
-- [x] **Analysis Engine**: TypeScript-based processing logic for high-volume trade data.
-- [x] **Jupyter Notebook**: [analysis.ipynb](./analysis.ipynb) for traditional Python-based Data Science exploration.
-- [x] **README.md**: Comprehensive setup and deployment instructions.
-- [x] **Charts & Tables**: Dynamic visualizations using Recharts and shadcn componentry.
-- [x] **Write-up**: See [ANALYSIS_REPORT.md](./ANALYSIS_REPORT.md) for methodology, insights, and strategies.
+The project is organized as follows for a clean Data Science submission:
 
-## Tech Stack
-- **Vite** + **React**
-- **TypeScript**
-- **Tailwind CSS**
-- **Recharts** (Data Visualization)
-- **Radix UI** / **Shadcn**
-
-## Getting Started
-
-### Prerequisites
-- Node.js & npm/bun
-
-### Installation
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-## 🚀 Deployment (Vercel)
-
-This project is optimized for deployment on **Vercel**.
-
-1.  **Environment Variables**: In Vercel Project Settings, add the following (optional if using defaults):
-    - `VITE_SENTIMENT_DATA_URL`: Path to your sentiment CSV (default: `/data/sentiment.csv`)
-    - `VITE_TRADER_DATA_URL`: Path to your trades CSV (default: `/data/trades.csv`)
-2.  **Automatic Routing**: The included `vercel.json` ensures that all routes redirect correctly for this SPA.
-
-## ⚙️ Environment Variables
-
-Copy `.env.example` to `.env` for local development:
-```bash
-VITE_SENTIMENT_DATA_URL=/data/sentiment.csv
-VITE_TRADER_DATA_URL=/data/trades.csv
+```text
+sentiment-market
+│
+├ data/
+│   ├ sentiment.csv             # Bitcoin Fear & Greed Index dataset
+│   └ hyperliquid_trades.csv    # Historical trader execution data (Large file)
+│
+├ notebook/
+│   └ analysis.ipynb   ✅      # Main Jupyter Notebook (Data Exploration & Insights)
+│
+├ charts/
+│   ├ pnl_vs_sentiment.png      # PnL distribution by sentiment category
+│   ├ leverage_distribution.png # Distribution of trade sizes (USD)
+│   └ trade_frequency.png       # Activity volume per sentiment regime
+│
+├ docs/
+│   └ ANALYSIS_REPORT.md        # Methodology, Insights, and Strategy recommendations
+│
+├ requirements.txt              # Required Python libraries
+└ README.md                     # Project overview and setup guide
 ```
 
-## Dataset Requirements
-The application expects two primary CSV datasets:
-1. **Sentiment Data**: Bitcoin Fear/Greed Index with `Date` and `Classification`.
-2. **Trader Data**: Hyperliquid execution data with `account`, `symbol`, `size`, `side`, `closedPnL`, and `leverage`.
+## 📊 Objective
+The goal of this study is to identify how extreme market emotions (Fear vs. Greed) influence trader profitability and risk-taking behavior, ultimately formulating a sentiment-aware trading strategy.
 
-## Methodology
-Data is aligned at a daily granularity. Metrics such as PnL, win rate, and leverage are aggregated across sentiment classifications to identify behavioral shifts and performance differentials.
+## 🚀 Getting Started
+
+### 1. Python Analysis (Charts & Data)
+Ensure you have Python 3.8+ installed.
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Generate analysis charts
+python generate_charts.py
+```
+
+### 2. Interactive Dashboard
+To run the React-based visualizer:
+```bash
+npm install
+npm run dev
+```
+
+## 💡 Key Insights
+*   **PnL Variance**: Traders experience significantly higher volatility in returns during "Extreme Fear" regimes.
+*   **Volume Spikes**: Trade frequency correlates positively with "Extreme Greed," showing increased retail participation.
+*   **Strategic Alpha**: Reducing leverage during sentiment extremes improves long-term capital preservation.
 
 ---
-*Internship Assignment Submission*
+**Data Science Submission**  
+*Methodology, Insights, and Strategy included in [ANALYSIS_REPORT.md](docs/ANALYSIS_REPORT.md)*

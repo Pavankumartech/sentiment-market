@@ -46,7 +46,7 @@ const Index = () => {
   // Auto-load sentiment data
   useEffect(() => {
     const sentimentUrl = import.meta.env.VITE_SENTIMENT_DATA_URL || '/data/sentiment.csv';
-    const traderUrl = import.meta.env.VITE_TRADER_DATA_URL || '/data/trades.csv';
+    const traderUrl = import.meta.env.VITE_TRADER_DATA_URL || '/data/hyperliquid_trades.csv';
 
     fetch(sentimentUrl)
       .then(r => {
